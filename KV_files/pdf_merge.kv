@@ -1,0 +1,44 @@
+<PdfMergeLayout>
+    background_color: 1, 0, 0, 1
+    foreground_color:  1, 0, 0, 1
+    GridLayout:
+        size_hint: .9, .9
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        rows:1
+        TextInput:
+            id:list_box
+            text:""
+            readonly:True
+            multiline:True
+            text_size: self.width-20, self.height-20
+            valign: 'center'
+        GridLayout:
+            rows:4
+            spacing: 10, 10
+            padding: 10, 10
+            # add these two lines
+
+            Image:
+                source:('mergetoolLogo.png')
+            Label:
+                text:"Please select PDF files"
+                font_size:18
+                color:"#32b7ff"
+
+            Button:
+                id:browse_button
+                height: 50
+                size_hint_y: None
+                text:"Browse"
+                bold:True
+                background_color:"#32b7ff"
+                on_press:root.getBrowseWindow()
+            Button:
+                id:merge_button
+                height: 50
+                size_hint_y: None
+                text:"MERGE"
+                bold:True
+                background_color:"#32b7ff"
+                on_press:root.mergePdf()
+                disabled:True
